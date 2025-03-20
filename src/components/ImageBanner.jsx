@@ -30,7 +30,7 @@ export function ImageBanner(props) {
 
   const getCarouselOrDefaultImage = () => {
     if (!arePicturesAvailable()) {
-      return <img src="/public/kalen-emsley-Bkci_8qcdvQ-unsplash 2.png" className="show" alt="" />;
+      return <img src="/public/mountain.webp" className="show" alt="" />;
     }
     return pictures.map((pic, i) => (
       <img key={pic} src={pic} alt="" className={getClassName(i)}></img>
