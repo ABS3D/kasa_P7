@@ -1,24 +1,33 @@
 @use "../scss/variables.scss" as colors;
 
 .grid {
-  background-color: colors.$background-dark;
-  min-height: 50vh;
-  border-radius: 2rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding: 1rem;
-  justify-content: space-between;
-  & > * {
-    width: 100%;
-    max-width: 20rem;
+  width: 100%; 
+    max-width: 1361px; 
+    margin: 40px auto; 
+    padding: 30px;
+    background-color: #F7F7F7;
+    border-radius: 25px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+
+  a {
+      text-decoration: none; 
   }
 }
 
-@media screen and (width <= 768px) {
+/* Responsive */
+@media (max-width: 1240px) {
   .grid {
-    justify-content: center;
-    background-color: colors.$grid-background-light;
-    padding: 0;
+      
+      grid-template-columns: repeat(3, 1fr);
+      width: 92%;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+      width: 85%;
+      grid-template-columns: 1fr; 
   }
 }
