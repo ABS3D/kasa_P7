@@ -3,6 +3,7 @@ import "./ApartmentCard.scss";
 import { Link } from "react-router-dom";
 import "./ApartmentCard.scss";
 
+
 function ApartmentCard(props) {
   return (
     <Link

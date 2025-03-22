@@ -2,21 +2,27 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 export function useApartment() {
-  const [flat, setFlat] = useState(null);
+  const [apartment, setApartment] = useState(null);
   const location = useLocation();
+  const apartmentId = location.state?.apartmentId;
 
   useEffect(() => {
-    const abortController = new AbortController();
-    fetch("db.json", { signal: abortController.signal })
+    const controller = new AbortController();
+
+    fetch("/db.json", { signal: controller.signal })
       .then((res) => res.json())
-      .then((flats) => {
-        const flat = flats.find((flat) => flat.id === location.state.apartmentId);
-        setFlat(flat);
+      .then((data) => {
+        const found = data.find((apt) => apt.id === apartmentId);
+        setApartment(found);
       })
-      .catch(console.error);
-    return () => {
-      abortController.abort();
-    };
-  }, []);
-  return flat;
+      .catch((error) => {
+        if (error.name !== "AbortError") {
+          console.error("Erreur de récupération de l'appart :", error);
+        }
+      });
+
+    return () => controller.abort();
+  }, [apartmentId]);
+
+  return apartment;
 }
