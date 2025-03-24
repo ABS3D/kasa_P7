@@ -30,10 +30,10 @@ export function ImageBanner(props) {
 
   const getCarouselOrDefaultImage = () => {
     if (!arePicturesAvailable()) {
-      return <img src="/public/mountain.webp" className="show" alt="" />;
+      return <img src="/mountain.webp" className="show" alt="iage des montagne" />;
     }
     return pictures.map((pic, i) => (
-      <img key={pic} src={pic} alt="" className={getClassName(i)}></img>
+      <img key={pic} src={pic} alt="image d'apprtement" className={getClassName(i)}></img>
     ));
   };
 

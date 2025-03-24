@@ -13,7 +13,7 @@ function ApartmentCard(props) {
       }}
     >
       <div className="apartment">
-        <img src={props.imageUrl} alt="" />
+        <img src={props.imageUrl} alt="image d'appartement" />
         <div className="apartment__subtitle">{props.title}</div>
       </div>
     </Link>

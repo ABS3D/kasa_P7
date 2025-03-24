@@ -8,7 +8,7 @@ import { useApartment } from "../hooks/useApartment";
 function ApartmentPage() {
   const flat = useApartment();
 
-  if (flat == null) return <div>Loading...</div>;
+  if (flat == null) return <ErrorPageNotFound />;
   return (
     <div className="apartment-page">
       <ImageBanner pictures={flat.pictures} />
